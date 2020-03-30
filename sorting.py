@@ -124,15 +124,21 @@ def quick_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs
     '''
     
+    i = 0
+    smaller_than = []
+    larger_than = []
     if len(xs) <=1:
         return xs
     else:
-        pivot = random.randrange(1, len(xs))
-        left  = xs[0:pivot]
-        right  = xs[pivot+1:len(xs)]
-        l = quick_sorted(left, cmp = cmp)
-        r = quick_sorted(right, cmp = cmp)
-        return _merged(l+pivot, r, cmp = cmp)
+        pivot = random.choice(xs)
+        for i in xs:
+            if cmp(i, pivot) == -1:
+                smaller_than.append(i)
+            else:
+                larger_than.append(i)
+        l = quick_sorted(smaller_than, cmp = cmp)
+        r = quick_sorted(larger_than, cmp = cmp)
+        return l + p + r
 
 
 def quick_sort(xs, cmp=cmp_standard):
