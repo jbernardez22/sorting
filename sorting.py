@@ -73,20 +73,6 @@ def _merged(xs, ys, cmp=cmp_standard):
         j = j+1
         k = k+1
     return merged_array
-    else:
-        merged_array = array_2[j]
-        j = j+1
-    k = k+1
-
-    while i < len(xs):
-        merged_array = array_1[i]
-        i = i+1
-        k = k+1
-
-    while j < len(ys):
-        merged_array = array_2[j]
-        j = j+1
-        k = k+1
 
 
 def merge_sorted(xs, cmp=cmp_standard):
