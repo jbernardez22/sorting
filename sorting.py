@@ -47,6 +47,47 @@ def _merged(xs, ys, cmp=cmp_standard):
     Runs in linear time.
     '''
 
+    array_1 = xs
+    array_2 = ys
+    merged_array = [None] * (len(array_1) + len(array_2))
+    i = 0
+    j = 0
+    k = 0
+
+    while (i<len(xs) and j<len(ys)):
+        if array_1[i] < array_2[j]:
+            merged_array[k] = array_1[i]
+            i = i+1
+        else:
+            merged_array[k] = array_2[j]
+            j = j+1
+        k = k+1
+
+    while i < len(xs):
+        merged_array[k] = array_1[i]
+        i = i+1
+        k = k+1
+
+    while j < len(ys):
+        merged_array[k] = array_2[j]
+        j = j+1
+        k = k+1
+    return merged_array
+    else:
+        merged_array = array_2[j]
+        j = j+1
+    k = k+1
+
+    while i < len(xs):
+        merged_array = array_1[i]
+        i = i+1
+        k = k+1
+
+    while j < len(ys):
+        merged_array = array_2[j]
+        j = j+1
+        k = k+1
+
 
 def merge_sorted(xs, cmp=cmp_standard):
     '''
@@ -63,8 +104,14 @@ def merge_sorted(xs, cmp=cmp_standard):
 
     You should return a sorted version of the input list xs
     '''
-
-
+    if(len(xs) == 1):
+        return xs
+    l = xs
+    else:
+        half = len(l)//2 
+        left =l[0:half]
+        right =l[half:len(l)]
+        
 def quick_sorted(xs, cmp=cmp_standard):
     '''
     Quicksort is like mergesort,
