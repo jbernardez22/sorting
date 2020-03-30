@@ -91,7 +91,7 @@ def merge_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs
     '''
     lst = xs
-    if len(xs) == 1:
+    if len(xs) <= 1:
         return xs
     else:
         half = len(lst)//2 
@@ -100,7 +100,7 @@ def merge_sorted(xs, cmp=cmp_standard):
         l = merge_sorted(left, cmp=cmp)
         r = merge_sorted(right, cmp=cmp)
         merged_list = _merged(l, r, cmp = cmp)
-    return merged_list
+        return merged_list
 
 def quick_sorted(xs, cmp=cmp_standard):
     '''
