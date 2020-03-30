@@ -54,8 +54,8 @@ def _merged(xs, ys, cmp=cmp_standard):
     j = 0
     k = 0
 
-    while (i<len(xs) and j<len(ys)):
-        if array_1[i] < array_2[j]:
+    while i<len(xs) and j<len(ys):
+        if cmp(xs[i], ys[j]) == -1:
             merged_array[k] = array_1[i]
             i = i+1
         else:
@@ -91,7 +91,6 @@ def merge_sorted(xs, cmp=cmp_standard):
     You should return a sorted version of the input list xs
     '''
 
-    '''
     if(len(xs) == 1):
         return xs
     l = xs
@@ -99,7 +98,7 @@ def merge_sorted(xs, cmp=cmp_standard):
         half = len(l)//2 
         left =l[0:half]
         right =l[half:len(l)]
-        '''
+
 
 def quick_sorted(xs, cmp=cmp_standard):
     '''
