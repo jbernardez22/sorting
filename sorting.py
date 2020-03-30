@@ -90,15 +90,17 @@ def merge_sorted(xs, cmp=cmp_standard):
 
     You should return a sorted version of the input list xs
     '''
-'''
-    if(len(xs) == 1):
+    lst = xs
+    if len(xs) == 1:
         return xs
-    l = xs
     else:
-        half = len(l)//2 
-        left =l[0:half]
-        right =l[half:len(l)]
-'''
+        half = len(lst)//2 
+        left =lst[0:half]
+        right =lst[half:len(lst)]
+        l = merge_sorted(left, cmp=cmp)
+        r = merge_sorted(right, cmp=cmp)
+        merged_list = _merged(l, r, cmp = cmp)
+    return merged_list
 
 def quick_sorted(xs, cmp=cmp_standard):
     '''
