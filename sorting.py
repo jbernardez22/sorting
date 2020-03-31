@@ -134,7 +134,7 @@ def quick_sorted(xs, cmp=cmp_standard):
         for i in xs:
             if cmp(i, pivot) == -1:
                 smaller_than.append(i)
-            elif cmp()==1:
+            elif cmp(i, pivot)==1:
                 larger_than.append(i)
         l = quick_sorted(smaller_than, cmp = cmp)
         r = quick_sorted(larger_than, cmp = cmp)
