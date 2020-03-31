@@ -138,7 +138,7 @@ def quick_sorted(xs, cmp=cmp_standard):
                 larger_than.append(i)
         l = quick_sorted(smaller_than, cmp = cmp)
         r = quick_sorted(larger_than, cmp = cmp)
-        left = l.append(pivot)
+       # left = l.append(pivot)
         return _merged(left, r, cmp = cmp)
 
 def quick_sort(xs, cmp=cmp_standard):
