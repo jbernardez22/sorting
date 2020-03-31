@@ -127,6 +127,7 @@ def quick_sorted(xs, cmp=cmp_standard):
     i = 0
     smaller_than = []
     larger_than = []
+    pivot_counter = 0
     if len(xs) <=1:
         return xs
     else:
@@ -136,10 +137,12 @@ def quick_sorted(xs, cmp=cmp_standard):
                 smaller_than.append(i)
             elif cmp(i, pivot)==1:
                 larger_than.append(i)
+            else:
+                pivot_counter = pivot_counter + 1
         l = quick_sorted(smaller_than, cmp = cmp)
         r = quick_sorted(larger_than, cmp = cmp)
-        left = l.append(pivot)
-        return _merged(left, r, cmp = cmp)
+        pivot_list = [pivot] * pivot_counter
+        return l + pivot_list + r
 
 def quick_sort(xs, cmp=cmp_standard):
     '''
